@@ -1,0 +1,161 @@
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" />
+    <title>XZZ</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 1px solid #0F0;
+        }
+
+        tr {
+            border: 1px solid #333;
+            height: 30px;
+        }
+
+        td {
+            border: 0px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#" method="post">
+        <table width="750" align="center">
+            <tbody>
+                <tr height="10">
+                    <td colspan="3" bgcolor="#CCCCCC">
+                        <font size="2">填写基本信息(带*的内容必须填写)</font>
+                    </td>
+                </tr>
+                <tr height="30">
+                    <td width="20%" style="text-align:right;">用户名: </td>
+                    <td width="60%" style="text-align:left;"><input style="widows: 55%;" type="text" name="UserName"
+                            maxlength="20" size="15" />
+                        <button>检测用户名 </button> (5~18字符)
+                    </td>
+                    <td width="20%" style="text-align:center;">*
+                    </td>
+                </tr>
+                <tr height="30">
+                    <td width="20%" style="text-align:right;">密码: </td>
+                    <td width="50%" style="text-align:left;"><input style="widows: 55%;" type="password" name="UserName"
+                            maxlength="20" size="15" /> (6~20位密码)
+                    </td>
+                    <td width="30%" style="text-align:center;">*
+                    </td>
+                </tr>
+                <tr height="30">
+                    <td width="20%" style="text-align:right;">密码确认: </td>
+                    <td width="50%" style="text-align:left;"><input style="widows: 55%;" type="password" name="UserName"
+                            maxlength="20" size="15" /> (再次输入密码以确认)
+                    </td>
+                    <td width="30%" style="text-align:center;">*
+                    </td>
+                </tr>
+                <tr height="30">
+                    <td width="20%" style="text-align:right;">昵称: </td>
+                    <td width="50%" style="text-align:left;"><input style="widows: 55%;" type="text" name="UserName"
+                            maxlength="20" size="15" /> (16个字符长度的中英文)
+                    </td>
+                    <td width="30%" style="text-align:center;">*
+                    </td>
+                </tr>
+                <tr height="30">
+                    <td width="20%" style="text-align:right;">性别: </td>
+                    <td width="50%" style="text-align:left;"><input name="sex" type="radio" value="男"
+                            checked="checked" />男
+                        <input name="sex" type="radio" value="女" />女
+                    </td>
+                    <td width="30%" style="text-align:center;">*
+                    </td>
+                </tr>
+                <!-- next line -->
+                <tr height="10">
+                    <td colspan="3" bgcolor="#CCCCCC">
+                        <font size="2">填写详细信息</font>
+                    </td>
+                </tr>
+
+                <tr height="30">
+                    <td width="20%" style="text-align:right;">密码保护问题: </td>
+                    <td width="50%" style="text-align:left;"><input style="widows: 55%;" type="text" name="UserName"
+                            maxlength="20" size="15" /> (取回密码问题)
+                    </td>
+                    <td width="30%" style="text-align:center;">*
+                    </td>
+                </tr>
+                <tr height="30">
+                    <td width="20%" style="text-align:right;">密码保护答案: </td>
+                    <td width="50%" style="text-align:left;"><input style="widows: 55%;" type="text" name="UserName"
+                            maxlength="20" size="15" /> (密码问题答案)
+                    </td>
+                    <td width="30%" style="text-align:center;">*
+                    </td>
+                </tr>
+                <tr height="30">
+                    <td width="20%" style="text-align:right;">真实姓名: </td>
+                    <td width="50%" style="text-align:left;"><input style="widows: 55%;" type="text" name="UserName"
+                            maxlength="20" size="15" />
+                    </td>
+                    <td width="30%" style="text-align:center;">
+                    </td>
+                </tr>
+                <tr height="30">
+                    <td width="20%" style="text-align:right;">证件类型: </td>
+                    <td width="50%" style="text-align:left;">
+                        <select name="IDType">
+                            <option>-请选择-</option>
+                            <option>身份证</option>
+                        </select>
+                    </td>
+                    <td width="30%" style="text-align:center;">
+                    </td>
+                </tr>
+                <tr height="30">
+                    <td width="20%" style="text-align:right;">证件号码: </td>
+                    <td width="50%" style="text-align:left;"><input style="widows: 55%;" type="text" name="UserName"
+                            maxlength="20" size="15" />
+                    </td>
+                    <td width="30%" style="text-align:center;">
+                    </td>
+                </tr>
+                <tr height="30">
+                    <td width="20%" style="text-align:right;">个性签名图: </td>
+                    <td width="50%" style="text-align:left;"><input style="widows: 55%;" type="file" name="UserName"
+                            maxlength="20" size="15" />
+                    </td>
+                    <td width="30%" style="text-align:center;">
+                    </td>
+                </tr>
+                <tr height="30">
+                    <td width="20%" style="text-align:right;">个人简介: </td>
+                    <td width="50%" style="text-align:left;"><textarea rows="5">我很累，不想动手！-_-!</textarea>
+                    </td>
+                    <td width="30%" style="text-align:center;">
+                    </td>
+                </tr>
+                <tr height="30">
+                        <td width="20%" style="text-align:right;">您感兴趣的信息: </td>
+                        <td colspan="2" style="text-align:left;">
+                                <input type="checkbox" name="YJ" > 电脑硬件
+                                <input type="checkbox" name="RJ" > 电脑软件
+                                <input type="checkbox" name="YX" > 电脑游戏
+                                <input type="checkbox" name="YY" > 音乐
+                                <input type="checkbox" name="LY" > 旅游
+                        </td>
+                    </tr>
+                <tr height="30">
+                    <td align="center" colspan="3" bgcolor="#CCCCCC">
+                        <input type="submit" name="send" value="注册" />
+                        <input type="reset" name="reset" value="清空" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+
+</html>
