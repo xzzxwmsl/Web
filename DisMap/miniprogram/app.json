@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/routes/routes",
+    "pages/info/info",
+    "pages/weather/weather",
+    "pages/inputtip/inputtip",
+    "pages/xx/xx",
+    "pages/xx2/xx2",
+    "pages/inputtip2/inputtip2",
+    "pages/poi/poi",
+    "pages/inputtip3/inputtip3",
+    "pages/Home/Home",
+    "pages/StepList/StepList",
+    "pages/Friend/Friend",
+    "pages/FriendList/FriendList",
+    "pages/FriendStep/FriendStep",
+    "pages/FriendList2/FriendList2",
+    "pages/FriendMap/FriendMap"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4D8AD7",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#4D8AD7",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "地图",
+        "iconPath": "/images/map2.png",
+        "selectedIconPath": "/images/map1.png"
+      },
+      {
+        "pagePath": "pages/weather/weather",
+        "text": "天气",
+        "iconPath": "/images/weather2.png",
+        "selectedIconPath": "/images/weather1.png"
+      },
+      {
+        "pagePath": "pages/Home/Home",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user_active.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 15000
+  }
+}
