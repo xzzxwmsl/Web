@@ -1,0 +1,8 @@
+<view class="map_container">
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16"
+  show-location="true" markers="{{markers}}" show-location='true'
+  ></map>
+</view>
+<view class="map_text" wx:if="{{textData.name}}">
+  <text class="h1">{{textData.name}}</text>
+</view>

@@ -1,0 +1,13 @@
+<!--index.wxml-->
+
+<button class="btn" bindtap='navitoMap'>
+ <view class="naviButton"   id="showMap" bindtouchstart="navitoMap">
+ 进入地图 
+ </view>
+ </button>
+ 
+ <button class='btn2' bindtap='navitoNear'>
+<view class="naviButton" id="nearRecommond" bindtouchstart='navitoNear'>附近推荐</view>
+ </button>
+ 
+ 

@@ -1,0 +1,40 @@
+<view>
+    <!-- header start -->
+    <view class="user-header">
+        <view class="user-img">
+        <image class='user-img' src='{{avatarUrl}}'></image>
+        </view>
+        <button open-type="getUserInfo" 
+      bindgetuserinfo="aaa" wx:if="{{login == false}}">登录</button>
+      <button open-type="getUserInfo" 
+      bindgetuserinfo="aaa" wx:if="{{login == true}}">注销</button>
+    </view>
+    <!-- / header end -->
+
+    <!-- article start -->
+    <view class="user-article" wx:if="{{login == true}}">
+
+        <view class="order-class" >
+            <navigator class="item-order" url="../StepList/StepList">
+                <view class="iconfont icon-group"><icon type='success_no_circle'></icon></view>
+                <text >我的步数</text>
+            </navigator>
+
+            <navigator class="item-order" url="../Friend/Friend">
+                <view class=" iconfont icon-pay"><icon type='search'></icon></view>
+                <text class="item--order-text">加好友</text>
+            </navigator>
+
+            <navigator class="item-order" url="../FriendList/FriendList">
+                <view class="iconfont icon-send"><icon type='info'></icon></view>
+                <text class="item--order-text">好友步数</text>
+            </navigator>
+
+            <navigator class="item-order" url="../FriendList2/FriendList2">
+                <view class="iconfont icon-send"><icon type='download'></icon></view>
+                <text class="item--order-text">好友位置</text>
+            </navigator>
+        </view>
+    </view>
+    <!-- / article end -->
+</view>

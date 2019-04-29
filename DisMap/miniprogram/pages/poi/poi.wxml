@@ -1,0 +1,56 @@
+<view class="section">
+  <input bindtouchstart="bindInput" placeholder="查找周边地点" value="{{keywords}}" />
+</view>
+
+<view class='adduserorder'>
+ <button catchtap="touchfood"  class="circle">
+ <image mode='aspectFit' src='../../images/food.png' plain='true' class='image'></image>
+ </button>
+  <text style='font-size:40rpx;color:black;position:absolute;left:85rpx;top:320rpx;'>餐厅</text>  
+ 
+ <button catchtap="touchhotel"  class="circle">
+ <image mode='aspectFit' src='../../images/hotel.png' plain='true' class='image'></image>
+ </button>
+ <text style='font-size:40rpx;color:black;position:absolute;left:335rpx;top:320rpx;'>酒店</text>  
+ <button catchtap="touchsight"  class="circle">
+ <image mode='aspectFit' src='../../images/sight.png' plain='true' class='image'></image>
+ </button>
+ <text style='font-size:40rpx;color:black;position:absolute;left:590rpx;top:320rpx;'>景点</text>  
+ </view>
+
+
+<view class='adduserorder'>
+ <button catchtap="touchbank"  class="circle">
+ <image mode='aspectFit' src='../../images/bank.png' plain='true' class='image'></image>
+ </button>
+<text style='font-size:40rpx;color:black;position:absolute;left:85rpx;top:550rpx;'>银行</text>  
+ <button catchtap="touchcinema"  class="circle">
+ <image mode='aspectFit' src='../../images/cinema.png' plain='true' class='image'></image>
+ </button>
+<text style='font-size:40rpx;color:black;position:absolute;left:325rpx;top:550rpx;'>电影院</text>  
+ <button catchtap="touchparking"  class="circle">
+ <image mode='aspectFit' src='../../images/parking.png' plain='true' class='image'></image>
+ </button>
+ <text style='font-size:40rpx;color:black;position:absolute;left:570rpx;top:550rpx;'>停车场</text>  
+ </view>
+<view class='adduserorder'>
+<button catchtap="touchsubway"  class="circle">
+ <image mode='aspectFit' src='../../images/subway.png' plain='true' class='image'></image>
+ </button>
+<text style='font-size:40rpx;color:black;position:absolute;left:50rpx;top:790rpx;'>公交地铁</text>  
+ <button catchtap="touchpetrol"  class="circle">
+ <image mode='aspectFit' src='../../images/petrol.png' plain='true' class='image'></image>
+ </button>
+<text style='font-size:40rpx;color:black;position:absolute;left:325rpx;top:790rpx;'>加油站</text> 
+<button catchtap="touchwc"  class="circle">
+ <image mode='aspectFit' src='../../images/wc.png' plain='true' class='image'></image>
+ </button>
+ <text style='font-size:40rpx;color:black;position:absolute;left:590rpx;top:790rpx;'>厕所</text> 
+</view>
+
+
+
+
+
+
+

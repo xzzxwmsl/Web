@@ -1,0 +1,8 @@
+<view class='button-wrapper'>
+    <button bindtap='tapHandler'>我的二维码</button>
+</view>
+<view class='button-wrapper'>
+    <button bindtap='addFriend'>扫一扫加好友</button>
+</view>
+<canvas wx:if="{{showPic==true}}" class='canvas' canvas-id='canvas' bindlongtap='save'></canvas>
+<view wx:if="{{showPic==true}}" class='tip'>长按图片保存</view>

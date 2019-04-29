@@ -1,0 +1,58 @@
+.naviButton{
+  border: 0px solid #000;
+  margin: 26px;
+  padding: 6px 0;
+  text-align: center;
+  }
+
+.btn{width: 100%;
+  margin-top: 40rpx;
+  background-color: rgb(33, 212, 182);
+  color:white;
+  border-radius: 70rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+.btn1{
+  width: 100%;
+  margin-top: 40rpx;
+  background-color: burlywood;
+  color: white;
+  border-radius:70rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.btn2{
+  width: 100%;
+  margin-top: 40rpx;
+  background-color: darkorchid;
+  color: white;
+  border-radius: 70rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.btn3{
+  width: 100%;
+  margin-top: 40rpx;
+  background-color: purple;
+  color: white;
+  border-radius:70rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.whole{
+  width:100%;
+  height:100%;
+ 
+  background-size: cover;
+}
+/* pages/index/index.wxss */
