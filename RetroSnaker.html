@@ -1,0 +1,276 @@
+<!-- 作业by 向正中，计算机学院，2016141414041
+手机17709048006
+JS课大作业
+贪吃蛇，通过小键盘操作 -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>向正中2016141414041</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            width: 800px;
+            height: 400px;
+            margin: 50px auto;
+        }
+
+        .btn {
+            width: 100px;
+            height: 40px;
+        }
+
+        .map {
+            position: relative;
+            width: 800px;
+            height: 400px;
+            background: #ccc;
+        }
+
+        /* css设置 */
+    </style>
+</head>
+
+<body onload="Onload()">
+    <div class="main">
+        <button class="btn" id="begin" onclick="begin()">开始</button>
+        <button class="btn" id="suspend" onclick="Suspend()">暂停</button>
+        <button class="btn" id="accumulate" onclick="accumulate()">加速</button>
+        <button class="btn" id="slowDown" onclick="slowDown()">减速</button>
+        <div id="Speed"></div>
+        <!--显示速度-->
+        <div id="Score"></div>
+        <!--显示分数-->
+        <div class="map" id="map"></div>
+
+        <script type="text/javascript">
+            var map = document.getElementById('map');
+            // 获取地图div
+            function Snake()//定义Snake
+            {
+                this.width = 10;
+                this.height = 10;//蛇体参数
+                this.direction = 'right';//初始方向
+                this.score = 0;//分数
+
+                this.body = [
+                    { x: 12, y: 10 },
+                    { x: 11, y: 10 },
+                    { x: 10, y: 10 }
+                ];//蛇体初始位置
+
+                this.InintalBody = function () {
+                    this.body = [
+                        { x: 12, y: 10 },
+                        { x: 11, y: 10 },
+                        { x: 10, y: 10 }
+                    ];//初始化蛇体位置
+
+                }
+
+                // 展示蛇的位置
+                this.display = function () {
+                    for (var i = 0; i < this.body.length; i++) {
+                        if (this.body[i].x != null) {   // 在map div中绘制蛇的位置等
+                            var s = document.createElement('div');
+                            this.body[i].flag = s;
+                            s.style.width = this.width + 'px';
+                            s.style.height = this.height + 'px';
+                            s.style.borderRadius = "50%";
+                            s.style.background = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
+                            // 随机生成身体的颜色
+                            s.style.position = 'absolute';
+                            s.style.left = this.body[i].x * this.width + 'px';
+                            s.style.top = this.body[i].y * this.height + 'px';
+                            map.appendChild(s);//加入子节点中
+                        }
+                    }
+                   document.getElementById("Score").innerHTML = "Score:" + this.score;//显示分数
+                };
+
+                //运行
+                this.run = function () {
+                    showInfo();
+                    //第i-1个节点的位置替换i节点，实现蛇动起来
+                    for (var i = this.body.length - 1; i > 0; i--) {
+                        this.body[i].x = this.body[i - 1].x;
+                        this.body[i].y = this.body[i - 1].y;
+                    }
+
+                    // 操纵蛇的方向
+                    switch (this.direction) {
+                        case "left":
+                            this.body[0].x -= 1;
+                            break;
+                        case "right":
+                            this.body[0].x += 1;
+                            break;
+                        case "up":
+                            this.body[0].y -= 1;
+                            break;
+                        case "down":
+                            this.body[0].y += 1;
+                            break;
+                    }
+
+                    // 判断蛇是否出界
+                    if (this.body[0].x < 0 || this.body[0].x > 79 || this.body[0].y < 0 || this.body[0].y > 39) {
+                        clearInterval(timer);   // 清除计时器
+                        alert("GameOver");
+                        for (var i = 0; i < this.body.length; i++) {
+                            if (this.body[i].flag != null) {   // 移除地图上的蛇体
+                                map.removeChild(this.body[i].flag);
+                            }
+                        }
+                        this.InintalBody();
+                        this.direction = 'right';
+                        this.score = 0;
+                        this.display();   //重新初始化
+                        flag = true;//使可以改变速度
+                        return false;   // 返回false值，游戏介绍
+                    }
+
+                    // 判断是否吃到了食物
+                    if (this.body[0].x == food.x && this.body[0].y == food.y) {
+                        this.score += 10;
+                        this.body.push({ x: null, y: null, flag: null });
+                        map.removeChild(food.flag);
+                        food.display();
+                    }
+
+                    // 判断是否吃到了自己
+                    for (var i = 4; i < this.body.length; i++) {
+                        if (this.body[0].x == this.body[i].x && this.body[0].y == this.body[i].y) {
+                            clearInterval(timer);   // 清除定时器
+                            alert("GameOver");
+                            for (var i = 0; i < this.body.length; i++) {
+                                if (this.body[i].flag != null) {   //清除蛇体
+                                    map.removeChild(this.body[i].flag);
+                                }
+                            }
+                            this.InintalBody();
+                            this.direction = 'right';
+                            this.score = 0;
+                            this.display();   // 重新初始化
+                            flag = true;//使可以改变速度
+                            return false;   // 返回false值，表示游戏结束
+                        }
+                    }
+
+                    //控制蛇体节点个数
+                    for (var i = 0; i < this.body.length; i++) {
+                        if (this.body[i].flag != null) {
+                            map.removeChild(this.body[i].flag);
+                        }
+                    }
+
+                    this.display();
+
+                }
+            }
+
+
+            function Food()//定义食物
+            {
+                this.width = 10;
+                this.height = 10;
+
+                this.display = function () {//展示食物位置
+                    var f = document.createElement('div');
+                    this.flag = f;
+                    f.style.width = this.width + 'px';
+                    f.style.height = this.height + 'px';
+                    f.style.background = 'red';
+                    f.style.borderRadius = '50%';
+                    f.style.position = 'absolute';
+                    this.x = Math.floor(Math.random() * 80);
+                    this.y = Math.floor(Math.random() * 40);
+                    f.style.left = this.x * this.width + 'px';
+                    f.style.top = this.y * this.height + 'px';
+                    map.appendChild(f);
+                }
+            }
+
+            var snake = new Snake();
+            var food = new Food();
+            snake.display();   //显示蛇
+            food.display();//展示食物
+
+            //控制移动方向
+            document.body.onkeydown = function (e) {
+                var ev = e || window.event;
+                //为小键盘控制
+                switch (ev.keyCode) {
+                    case 38:
+                        if (snake.direction != 'down') {
+                            snake.direction = "up";
+                        }
+                        break;
+                    case 40:
+                        if (snake.direction != "up") {
+                            snake.direction = "down";
+                        }
+                        break;
+                    case 37:
+                        if (snake.direction != "right") {
+                            snake.direction = "left";
+                        }
+                        break;
+                    case 39:
+                        if (snake.direction != "left") {
+                            snake.direction = "right";
+                        }
+                        break;
+                }
+            };
+
+            var timer;
+            var time = 50;
+            var flag = true;//控制使当游戏运行时，不能加速或减速
+
+            Onload = function () {//加载页面预处理函数
+                showInfo();
+                alert("向正中,2016141414041\n操作方式:小键盘");
+            }
+
+            showInfo = function () {//显示信息
+                var speed = document.getElementById("Speed");
+                speed.innerHTML = "Speed:" + (100 - time);//time间隔越小，speed越大
+            }
+
+            accumulate = function () {
+                if (flag) {
+                    time = time - 10;//减少刷新间隔，达到加速的目的
+                    if (time < 10) time = 10;//最小为10
+                    showInfo();
+                }
+            }
+
+            slowDown = function () {
+                if (flag) {
+                    time = time + 10;//增加刷新间隔，达到减速的目的
+                    if (time > 100) time = 100;//最大为100
+                    showInfo();
+                }
+            }
+
+            begin = function () {
+                clearInterval(timer);
+                flag = false;
+                timer = setInterval("snake.run()", time);
+            };
+
+            Suspend = function () {
+                clearInterval(timer);
+            }
+
+        </script>
+    </div>
+</body>
+
+</html>
